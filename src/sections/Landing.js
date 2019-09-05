@@ -8,7 +8,7 @@ import Section from '../components/Section';
 // import MouseIcon from '../components/MouseIcon';
 import Triangle from '../components/Triangle';
 import Particles from 'react-particles-js';
-
+import Image from '../components/image'
 
 
 const Background = () => (
@@ -69,6 +69,7 @@ const LandingPage = () => (
       
         
           <Fragment>
+            <Image />
             <Heading
               textAlign="center"
               as="h2"

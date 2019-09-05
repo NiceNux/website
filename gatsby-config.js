@@ -5,5 +5,20 @@
  */
 
 module.exports = {
-  /* Your site config here */
+  siteMetadata: {
+    title: `Nice Nux game studios`,
+    description: `Nice Nux game studios`,
+    author: `Drew MacLean / Ian Karasz`,
+  },
+  plugins: [
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/media`,
+      },
+    },
+  ]
 }
