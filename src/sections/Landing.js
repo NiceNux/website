@@ -7,19 +7,20 @@ import Section from '../components/Section';
 // import SocialLink from '../components/SocialLink';
 // import MouseIcon from '../components/MouseIcon';
 import Triangle from '../components/Triangle';
+import Particles from 'react-particles-js';
 
 
 
 const Background = () => (
   <div>
     <Triangle
-      color="backgroundDark"
+      color="red"
       height={['35vh', '80vh']}
       width={['95vw', '60vw']}
     />
 
     <Triangle
-      color="secondary"
+      color=""
       height={['38vh', '80vh']}
       width={['50vw', '35vw']}
     />
@@ -32,14 +33,14 @@ const Background = () => (
     />
 
     <Triangle
-      color="backgroundDark"
+      color="grey"
       height={['20vh', '20vh']}
       width={['100vw', '100vw']}
       invertX
-      invertY
     />
   </div>
 );
+
 
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
 
@@ -75,7 +76,7 @@ const LandingPage = () => (
               fontSize={[5, 6, 8]}
               mb={[3, 4, 5]}
             >
-              {`Hello, I'm Nice Nux!`}
+              {`We Are Nice Nux!`}
             </Heading>
 
             <Heading
@@ -86,7 +87,7 @@ const LandingPage = () => (
               textAlign="center"
               style={centerHorizontally}
             >
-              <TextLoop interval={5000}
+              <TextLoop interval={2000}
              springConfig={{ stiffness: 180, damping: 8 }}
              >
                 {roles
