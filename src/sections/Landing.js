@@ -14,13 +14,13 @@ import Image from '../components/image'
 const Background = () => (
   <div>
     <Triangle
-      color="red"
+      color="backgroundDark"
       height={['35vh', '80vh']}
       width={['95vw', '60vw']}
     />
 
     <Triangle
-      color=""
+      color="secondary"
       height={['38vh', '80vh']}
       width={['50vw', '35vw']}
     />
@@ -33,10 +33,11 @@ const Background = () => (
     />
 
     <Triangle
-      color="grey"
+      color="backgroundDark"
       height={['20vh', '20vh']}
       width={['100vw', '100vw']}
       invertX
+      invertY
     />
   </div>
 );
@@ -47,8 +48,7 @@ const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
 const roles = ['App Development', 'Serverless Architecture', 'Gamification Consulting']
 
 const LandingPage = () => (
-
-  <Section.Container id="home" Background={Background}>
+  <Section.Container id="home" Background={Background}> 
 
      {/* <StaticQuery
       query={graphql`
@@ -69,7 +69,13 @@ const LandingPage = () => (
       
         
           <Fragment>
-            <Image />
+            <Flex mx={-200}>
+              <Box width={1/3}> </Box>
+              <Box width={1/3}>
+                <Image />
+              </Box>
+              <Box width={1/3}>   </Box>
+            </Flex>
             <Heading
               textAlign="center"
               as="h2"

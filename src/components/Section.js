@@ -23,11 +23,11 @@ const DefaultBackground = () => <div />;
 
 const Container = ({ id, children, Background = DefaultBackground }) => (
   // <Section id={id} style={{ position: 'relative' }}>
-    <>
+  <>
     <Background />
     <SectionContainer>{children}</SectionContainer>
     </>
-  // </Section>
+//  </Section>
 );
 
 Container.propTypes = {
