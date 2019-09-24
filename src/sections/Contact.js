@@ -35,11 +35,34 @@ const Background = () => (
   </div>
 );
 
+
+
 const ContactPage = () => (
   <Section.Container id="home" Background={Background}>
+    {/* <form name="new-lolly" action="/new" method="POST">
+
+<input type="color" id="flavourTop" name="flavourTop" value="#d52358" />
+<input type="color" id="flavourMiddle" name="flavourMiddle" value="#e95946" />
+<input type="color" id="flavourBottom" name="flavourBottom" value="#deaa43" />
+
+
+<label for="recipientName">To</label>
+<input type="text" id="recipientName" name="recipientName" />
+
+<label for="message">Say something nice</label>
+<textarea name="message" id="message" cols="30" rows="10"></textarea>
+
+<label for="sendersName">From</label>
+<input type="text" id="sendersName" name="sendersName" />
+
+<input type="submit" value="Freeze this lolly and get a link" />
+
+</form> */}
 <Box
   as='form'
-  onSubmit={e => e.preventDefault()}
+  action="/submitForm"
+  method="POST"
+  // onSubmit={e => e.preventDefault()}
   py={3}>
   <Flex mx={-2} mb={3}>
     <Box width={1/2} px={2}>
