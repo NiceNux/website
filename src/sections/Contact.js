@@ -39,86 +39,58 @@ const Background = () => (
 
 const ContactPage = () => (
   <Section.Container id="home" Background={Background}>
-    {/* <form name="new-lolly" action="/new" method="POST">
+    <form name="new-lolly" action="/submitForm" method="POST">
+      {/* <label for="recipientName">To</label> */}
+      <input type="text" id="name" name="name" />
 
-<input type="color" id="flavourTop" name="flavourTop" value="#d52358" />
-<input type="color" id="flavourMiddle" name="flavourMiddle" value="#e95946" />
-<input type="color" id="flavourBottom" name="flavourBottom" value="#deaa43" />
+      {/* <label for="message">Say something nice</label> */}
+      {/* <textarea name="message" id="message" cols="30" rows="10"></textarea> */}
 
+      {/* <label for="sendersName">From</label> */}
+      {/* <input type="text" id="sendersName" name="sendersName" /> */}
 
-<label for="recipientName">To</label>
-<input type="text" id="recipientName" name="recipientName" />
+      <input type="submit" value="submit" />
 
-<label for="message">Say something nice</label>
-<textarea name="message" id="message" cols="30" rows="10"></textarea>
-
-<label for="sendersName">From</label>
-<input type="text" id="sendersName" name="sendersName" />
-
-<input type="submit" value="Freeze this lolly and get a link" />
-
-</form> */}
-<Box
-  as='form'
-  action="/submitForm"
-  method="POST"
-  // onSubmit={e => e.preventDefault()}
-  py={3}>
-  <Flex mx={-2} mb={3}>
-    <Box width={1/2} px={2}>
-      <Label htmlFor='name'>Name</Label>
-      <Input
-        id='name'
-        name='name'
-        defaultValue='Jane Doe'
-      />
-    </Box>
-    <Box width={1/2} px={2}>
-      <Label htmlFor='location'>Location</Label>
-      <Select
-        id='location'
-        name='location'
-        defaultValue='NYC'>
-        <option>NYC</option>
-        <option>DC</option>
-        <option>ATX</option>
-        <option>SF</option>
-        <option>LA</option>
-      </Select>
-    </Box>
-  </Flex>
-  <Flex mx={-2} flexWrap='wrap'>
-    <Label width={[ 1/2, 1/4 ]} p={2}>
-      <Radio
-        id='beep'
-        name='beep'
-        value='beep'
-        defaultChecked
-      />
-      Beep
-    </Label>
-    <Label width={[ 1/2, 1/4 ]} p={2}>
-      <Radio
-        id='boop'
-        name='beep'
-        value='boop'
-      />
-      Boop
-    </Label>
-    <Label width={[1/2, 1/4]} p={2}>
-      <Checkbox
-        id='remember'
-        name='remember'
-      />
-      Remember Me
-    </Label>
-    <Box px={2} ml='auto'>
-      <Button>
-        Beep
-      </Button>
-    </Box>
-  </Flex>
-</Box>
+    </form>
+    {/* <Box
+      as='form'
+      action="/submitForm"
+      method="POST"
+      // onSubmit={e => e.preventDefault()}
+      py={3}>
+      <Flex mx={-2} mb={3}>
+        <Box width={1/2} px={2}>
+          <Label htmlFor='email'>Email</Label>
+          <Input
+            id='email'
+            name='email'
+            defaultValue='test6@test.com'
+          />
+        </Box>
+        <Box width={1/2} px={2}>
+          <Label htmlFor='message'>Message</Label>
+            <Input
+              id='message'
+              name='message'
+              defaultValue='11111111111'
+            />
+        </Box>
+      </Flex>
+      <Flex mx={-2} flexWrap='wrap'>
+        <Label width={[1/2, 1/4]} p={2}>
+          <Checkbox
+            id='reqUpdates'
+            name='reqUpdates'
+          />
+          Subscribe
+        </Label>
+        <Box px={2} ml='auto'>
+          <button type="submit">
+            Submit
+          </button>
+        </Box>
+      </Flex>
+    </Box> */}
   </Section.Container>
 );
   
