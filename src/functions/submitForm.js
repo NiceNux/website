@@ -8,93 +8,89 @@ exports.handler = (event, context, callback) => {
   });
 
   let ddb = new AWS.DynamoDB();
+  const formData = querystring.parse(event.body);
+  const requestUpdatesBool = (formData.requestUpdates === 'on');
 
-  // event = {
-  //   "email": "value3",
-  //   "reqUpdates": true,
-  //   "message": "!!!",
-  //   "timeStamp": "123"
-  // }
+  let params = {
+     "TableName": "NiceNuxSubmissions",
+     "Key": {
+       'email': { "S": formData.email }
+     }
+  };
 
-  // get the form data
-  const data = querystring.parse(event.body);
-
-  console.log('DATA', data);
-  console.log('EVENT.BODY', JSON.stringify(event.body));
-  
-  // let params = {
-  //    "TableName": "NiceNuxSubmissions",
-  //    "Key": {
-  //      'email': { "S": event.email }
-  //    }
-  // };
-
-  // ddb.getItem(params, function (err, data) {
-  //     if(err) {
-  //         callback(err, null);
-  //     } else {
-  //         if(data.Item) {
-  //             let params = {
-  //                 "TableName": "NiceNuxSubmissions",
-  //                 "Key": {
-  //                     'email': { "S": event.email }
-  //                 },
-  //                 "ExpressionAttributeValues": {
-  //                         ":messages": {
-  //                             "L": [
-  //                                 {
-  //                                     "M": {
-  //                                         "message": {
-  //                                             "S": event.message
-  //                                          },
-  //                                         "timeStamp": {
-  //                                             "N": Date.now().toString()
-  //                                         }
-  //                                     }
-  //                                 }
-  //                             ]
-  //                         }
-  //                 },
-  //                 "UpdateExpression": "SET messages = list_append(messages, :messages)"
-  //             };
-  //             ddb.updateItem(params, function(err, data) {
-  //                 if (err) {
-  //                     console.log("Unable to insert item. Error JSON:", JSON.stringify(err, null, 2));
-  //                 } else {
-  //                     console.log("SUCCESS");
-  //                 }
-  //             });
-  //         }else {
-  //             console.log("putting item", event);
-  //             let params = {
-  //                 "TableName": "NiceNuxSubmissions",
-  //                 "Item": {
-  //                     "email": { "S": event.email },
-  //                     "messages": { 
-  //                         "L": [
-  //                             {
-  //                                 "M":{
-  //                                     "message": {
-  //                                         "S": event.message
-  //                                     },
-  //                                     "timeStamp": {
-  //                                         "N": Date.now().toString()
-  //                                     }
-  //                                 }
-  //                             }
-  //                         ]
-  //                     },
-  //                     "reqUpdates": { "BOOL": event.reqUpdates }
-  //                 }
-  //             };
-  //             ddb.putItem(params, function(err, data) {
-  //                 if (err) {
-  //                     console.log("Unable to insert item. Error JSON:", JSON.stringify(err, null, 2));
-  //                 } else {
-  //                     console.log("SUCCESS");
-  //                 }
-  //             });
-  //         }
-  //     }
-  // });
+  ddb.getItem(params, function (err, dbItem) {
+      if(err) {
+          callback(err, null);
+      } else {
+          if(dbItem.Item) {
+              let params = {
+                  "TableName": "NiceNuxSubmissions",
+                  "Key": {
+                      'email': { "S": formData.email }
+                  },
+                  "ExpressionAttributeValues": {
+                          ":messages": {
+                              "L": [
+                                  {
+                                      "M": {
+                                          "message": {
+                                              "S": formData.message
+                                           },
+                                          "timeStamp": {
+                                              "N": Date.now().toString()
+                                          }
+                                      }
+                                  }
+                              ]
+                          }
+                  },
+                  "UpdateExpression": "SET messages = list_append(messages, :messages)"
+              };
+              ddb.updateItem(params, function(err, data) {
+                  if (err) {
+                      console.log("Unable to insert item. Error JSON:", JSON.stringify(err, null, 2));
+                  } else {
+                      console.log("SUCCESS");
+                  }
+              });
+          }else {
+              console.log("putting item", formData);
+              console.log("email", formData.email)
+              console.log("message", formData.message)
+              console.log("requestUpdatesBool", requestUpdatesBool)
+              let params = {
+                  "TableName": "NiceNuxSubmissions",
+                  "Item": {
+                      "email": { "S": formData.email },
+                      "messages": { 
+                          "L": [
+                              {
+                                  "M":{
+                                      "message": {
+                                          "S": formData.message
+                                      },
+                                      "timeStamp": {
+                                          "N": Date.now().toString()
+                                      }
+                                  }
+                              }
+                          ]
+                      },
+                      "reqUpdates": { "BOOL": requestUpdatesBool }
+                  }
+              };
+              ddb.putItem(params, function(err, data) {
+                  if (err) {
+                      console.log("Unable to insert item. Error JSON:", JSON.stringify(err, null, 2));
+                  } else {
+                      console.log("SUCCESS");
+                  }
+              });
+          }
+      }
+      callback(null, {
+        statusCode: 200,
+        body: "Data Submitted",
+      });
+  });
 };

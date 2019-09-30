@@ -1,30 +1,79 @@
-class NameForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {value: ''};
+import React from 'react'
+import {
+  Label,
+  Input,
+  Select,
+  Textarea,
+  Radio,
+  Checkbox,
+} from '@rebass/forms'
+import { Heading, Flex, Box, Text, Button } from 'rebass';
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+const validate = ({ email, message }) => {
+  const errors = {}
+ 
+  if (!email) errors.email = 'Email address is required'
+ 
+  if (!message) errors.message = 'Message is required'
+ 
+  return errors
+}
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
-
-  handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
-    event.preventDefault();
+class Form extends React.Component {
+  state = {
+    email: '',
+    message: '',
+    requestUpdates: '',
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+      <Box
+      as='form'
+      action="/submitForm" 
+      method="POST"
+      validate={validate}
+      py={3}>
+      <Flex mx={-2} mb={3}>
+        <Box width={1/2} px={2}>
+          <Label htmlFor='email'>Email</Label>
+          <Input
+            id='email'
+            name='email'
+            type="email"
+            placeholder='example@email.com'
+          />
+        </Box>
+      </Flex>
+      <Flex mx={-2} mb={3}>
+        <Box width={1/2} px={2}>
+          <Label htmlFor='message'>Message</Label>
+          <Textarea
+          rows="10"
+          id='message'
+          name='message'
+          type='text'
+          placeholder='Enter inquery here'
+        />
+        </Box>
+      </Flex>
+      <Flex mx={-2} flexWrap='wrap'>
+        <Label width={[1/2, 1/4]} p={2}>
+          <Checkbox
+            id='requestUpdates'
+            name='requestUpdates'
+          />
+          Receive Updates
+        </Label>
+        <Box px={10} width={1/4}>
+          <Button bg='#008CBA'>
+            Submit
+          </Button>
+        </Box>
+      </Flex>
+    </Box>
     );
   }
 }
+
+export default Form
