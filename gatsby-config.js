@@ -13,12 +13,20 @@ module.exports = {
   plugins: [
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    'gatsby-plugin-sass',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/media`,
       },
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `lixbo4eywy36`,
+        accessToken: `ZmTvGHX6ur8qj6Hf9YdJc_X8xcWHdm43VKGI7xy377U`
+      }
     },
   ]
 }
