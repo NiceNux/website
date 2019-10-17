@@ -28,7 +28,7 @@ const Background = () => (
 );
 
 const ContactPage = () => (
-  <Section.Container id="home" Background={Background}>
+  <Section.Container id="contact" Background={Background}>
     <Form />
   </Section.Container>
 );
