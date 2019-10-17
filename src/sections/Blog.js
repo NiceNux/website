@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react"
 import { graphql, StaticQuery } from "gatsby"
-import { Row, Col, CardGroup } from 'reactstrap'
+import { Row, Col, Card, CardBody } from 'reactstrap'
 import Triangle from '../components/Triangle';
 import Section from '../components/Section';
 import Post from '../components/Post'
@@ -34,6 +34,7 @@ const IndexPage = () => (
   <Section.Container id="blog" Background={Background}>
       <StaticQuery query={indexQuery} render={data => {
       return (
+        <>
         <Row>
           {data.allContentfulBlogPost.edges.map(({ node }) =>(
             <Col>
@@ -50,6 +51,8 @@ const IndexPage = () => (
             </Col>
           ))}
         </Row>
+        <a href={`https://nicenuxblog.netlify.com/`} className="btn btn-primary float-center"> See All Posts </a>
+        </>
       )
     }}/>
   </Section.Container>

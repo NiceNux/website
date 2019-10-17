@@ -9,13 +9,13 @@ const Post = ({ title, author, slug, date, body, fluid, tags }) => {
     return(
         <Card>
             <CardBody>
-                <Link to={`nicenuxblog.netlify.com/blogpost/${slug}/`}>
+                <a href={`https://nicenuxblog.netlify.com/blogpost/${slug}/`}>
                     <Img className="card-image-top" fluid={fluid} />
-                </Link>
+                </a>
                 <CardTitle>
-                    <Link to={`nicenuxblog.netlify.com/blogpost/${slug}/`}>
+                    <a href={`https://nicenuxblog.netlify.com/blogpost/${slug}/`}>
                     {title}
-                    </Link>
+                    </a>
                 </CardTitle>
                 <CardSubtitle>
                     <span className="text-info"> {date} </span> by
@@ -33,7 +33,7 @@ const Post = ({ title, author, slug, date, body, fluid, tags }) => {
                         </li>
                     ))}
                 </ul>
-                <Link to={`nicenuxblog.netlify.com/blogpost/${slug}/`} className="btn btn-outline-primary float-right"> Read More </Link>
+                <a href={`https://nicenuxblog.netlify.com/blogpost/${slug}/`} className="btn btn-outline-primary float-right"> Read More </a>
             </CardBody>
         </Card>
     )
