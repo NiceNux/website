@@ -5,6 +5,7 @@ import { Row, Col, Card, CardBody } from 'reactstrap'
 import Triangle from '../components/Triangle';
 import Section from '../components/Section';
 import Post from '../components/Post'
+import Fade from 'react-reveal/Fade';
 
 const Background = () => (
   <div>
@@ -35,6 +36,7 @@ const IndexPage = () => (
       <StaticQuery query={indexQuery} render={data => {
       return (
         <>
+        <Fade left>
         <Row>
           {data.allContentfulBlogPost.edges.map(({ node }) =>(
             <Col>
@@ -51,7 +53,10 @@ const IndexPage = () => (
             </Col>
           ))}
         </Row>
+        </Fade>
+        <Fade right>
         <a href={`https://nicenuxblog.netlify.com/`} className="btn btn-primary float-center"> See All Posts </a>
+        </Fade>
         </>
       )
     }}/>

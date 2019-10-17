@@ -6,7 +6,7 @@ import Blog from '../sections/Blog';
 // import Projects from '../sections/Projects';
 // import Writing from '../sections/Writing';
 import Header from '../components/Header';
-// import Footer from '../components/Footer';
+import Footer from '../components/Footer';
 import '../styles/index.scss'
 
 const IndexPage = () => (
@@ -16,8 +16,8 @@ const IndexPage = () => (
     <Blog />
     <Contact />
     {/*<Projects />
-    <Writing />
-    <Footer /> */}
+    <Writing /> */}
+    <Footer /> 
   </Layout>
 );
 
