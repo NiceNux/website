@@ -62,7 +62,8 @@ const Footer = () => (
       <Fade left>
         <TextFooter fontSize={[2, 3]}>
           <Link to="/team/">
-            Learn more about Nice Nux Innovations
+            Learn more about<br />
+            Nice Nux Innovations
           </Link>
         </TextFooter>
       </Fade>

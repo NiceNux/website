@@ -69,12 +69,12 @@ const LandingPage = () => (
       
         
           <Fragment>
-            <Flex mx={-200}>
-              <Box width={1/3}> </Box>
-              <Box width={1/3}>
+            <Flex mx={0}>
+              <Box width={1/6}> </Box>
+              <Box width={2/3}>
                 <Image />
               </Box>
-              <Box width={1/3}>   </Box>
+              <Box width={1/6}>   </Box>
             </Flex>
             <Heading
               textAlign="center"

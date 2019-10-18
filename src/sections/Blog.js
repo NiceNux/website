@@ -6,15 +6,16 @@ import Triangle from '../components/Triangle';
 import Section from '../components/Section';
 import Post from '../components/Post'
 import Fade from 'react-reveal/Fade';
+import ImageSubtitle from '../components/ImageSubtitle'
 
 const Background = () => (
   <div>
-    {/* <Triangle
+    <Triangle
       color="secondaryLight"
       height={['50vh', '20vh']}
-      width={['50vw', '50vw']}
+      width={['50vw', '48.5vw']}
       invertY
-    /> */}
+    />
 
     <Triangle
       color="primaryDark"
@@ -36,27 +37,27 @@ const IndexPage = () => (
       <StaticQuery query={indexQuery} render={data => {
       return (
         <>
-        <Fade left>
-        <Row>
-          {data.allContentfulBlogPost.edges.map(({ node }) =>(
-            <Col>
-              <Post
-                key={node.id} 
-                title={node.title}
-                author={node.author}
-                slug={node.slug}
-                date={node.date}
-                body={node.desc.desc}
-                fluid={node.image.fluid}
-                tags={node.tags}
-              />
-            </Col>
-          ))}
-        </Row>
-        </Fade>
-        <Fade right>
-        <a href={`https://nicenuxblog.netlify.com/`} className="btn btn-primary float-center"> See All Posts </a>
-        </Fade>
+          <Fade left>
+            <Row>
+              {data.allContentfulBlogPost.edges.map(({ node }) =>(
+                <Col>
+                  <Post
+                    key={node.id} 
+                    title={node.title}
+                    author={node.author}
+                    slug={node.slug}
+                    date={node.date}
+                    body={node.desc.desc}
+                    fluid={node.image.fluid}
+                    tags={node.tags}
+                  />
+                </Col>
+              ))}
+            </Row>
+          </Fade>
+          <Fade right>
+            <a href={`https://nicenuxblog.netlify.com/`} className="btn btn-primary float-center"> See All Posts </a>
+          </Fade>
         </>
       )
     }}/>
