@@ -6,7 +6,6 @@ import Triangle from '../components/Triangle';
 import Section from '../components/Section';
 import Post from '../components/Post'
 import Fade from 'react-reveal/Fade';
-import ImageSubtitle from '../components/ImageSubtitle'
 
 const Background = () => (
   <div>
