@@ -30,29 +30,25 @@ const socialLinks =
       id: "1",
       fontAwesomeIcon: "github",
       name: "GitHub", 
-      url: "https://www.github.com/NiceNux", 
-      color: "white"
+      url: "https://www.github.com/NiceNux"
     },
     {
       id: "2",
       fontAwesomeIcon: "facebook",
       name: "Facebook", 
-      url: "https://www.facebook.com/NiceNux", 
-      color: "white"
+      url: "https://www.facebook.com/NiceNux"
     },
     {
       id: "3",
       fontAwesomeIcon: "twitter",
       name: "Twitter", 
-      url: "https://www.Twitter.com/NiceNux", 
-      color: "white"
+      url: "https://www.Twitter.com/NiceNux"
     },
     {
       id: "4",
       fontAwesomeIcon: "envelope",
       name: "Email", 
       url: "mailto:sales@nicenux.com", 
-      color: "white"
     },
   ]
 
@@ -71,7 +67,7 @@ const Footer = () => (
         <Fade right>
           {socialLinks.map(({ id, ...rest }) => (
             <Box mx={[2, 3]} fontSize={[4, 5]} key={id}>
-              <SocialLink {...rest} color="#ffffff" />
+              <SocialLink {...rest} color="white" />
             </Box>
           ))}
         </Fade>
