@@ -1,17 +1,12 @@
-"use strict";
+let AWS = require('aws-sdk');
+const querystring = require('querystring');
+AWS.config.region = 'us-east-2';
+AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+  IdentityPoolId: 'us-east-2:88d40a15-8219-413e-9141-02064462aab1'
+});
+let ddb = new AWS.DynamoDB();
 
 exports.handler = (event, context, callback) => {
-  let AWS = require('aws-sdk');
-
-  const querystring = require('querystring'); // Help us parse the form data
-
-
-  AWS.config.region = 'us-east-2'; // Region
-
-  AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-    IdentityPoolId: 'us-east-2:88d40a15-8219-413e-9141-02064462aab1'
-  });
-  let ddb = new AWS.DynamoDB();
   const formData = querystring.parse(event.body);
   const requestUpdatesBool = formData.requestUpdates === 'on';
   let params = {

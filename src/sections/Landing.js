@@ -14,26 +14,26 @@ import Image from '../components/image'
 const Background = () => (
   <div>
     <Triangle
-      color="backgroundDark"
+      color="NN1"
       height={['35vh', '80vh']}
       width={['95vw', '60vw']}
     />
 
     <Triangle
-      color="secondary"
+      color="NN2"
       height={['38vh', '80vh']}
       width={['50vw', '35vw']}
     />
 
     <Triangle
-      color="primaryDark"
+      color="NN3"
       height={['25vh', '35vh']}
       width={['75vw', '60vw']}
       invertX
     />
 
     <Triangle
-      color="backgroundDark"
+      color="NN4"
       height={['20vh', '20vh']}
       width={['100vw', '100vw']}
       invertX
@@ -83,7 +83,7 @@ const LandingPage = () => (
               fontSize={[5, 6, 8]}
               mb={[3, 4, 5]}
             >
-              {`We Are Nice Nux!`}
+              {`Nice Nux Inovations`}
             </Heading>
 
             <Heading

@@ -10,29 +10,30 @@ import Fade from 'react-reveal/Fade';
 const Background = () => (
   <div>
     <Triangle
-      color="secondaryLight"
+      color="NN1"
       height={['50vh', '20vh']}
       width={['50vw', '48.5vw']}
       invertY
     />
 
     <Triangle
-      color="primaryDark"
+      color="NN2"
       height={['20vh', '40vh']}
       width={['75vw', '70vw']}
       invertX
     />
 
     <Triangle
-      color="backgroundDark"
+      color="NN4"
       height={['25vh', '20vh']}
       width={['100vw', '100vw']}
     />
   </div>
 );
 
-const IndexPage = () => (   
+const BlogPage = () => (   
   <Section.Container id="blog" Background={Background}>
+    <Section.Header name="Blog" icon="✍️" label="blog" />
       <StaticQuery query={indexQuery} render={data => {
       return (
         <>
@@ -88,4 +89,4 @@ query BlogPostsPageQuery {
 }
 `
 
-export default IndexPage
+export default BlogPage

@@ -36,7 +36,7 @@ const socialLinks =
       id: "2",
       fontAwesomeIcon: "facebook",
       name: "Facebook", 
-      url: "https://www.facebook.com/NiceNux"
+      url: "https://www.facebook.com/Nice-Nux-102855471280387"
     },
     {
       id: "3",

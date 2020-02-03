@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import { Link } from 'gatsby'
-import {Badge, Card, CardTitle, CardText, CardSubtitle, CardBody } from 'reactstrap'
+import {Badge, CardTitle, CardText, CardSubtitle, CardBody } from 'reactstrap'
 import Img from 'gatsby-image'
+import { CardContainer, Card } from '../components/Card';
 //import { slugify } from '../util/utilityFunctions'
 
 const Post = ({ title, author, slug, date, body, fluid, tags }) => {

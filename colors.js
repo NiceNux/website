@@ -4,10 +4,16 @@ module.exports = {
   
     primary: '#7c37ad',
     primaryLight: '#ae66df',
-    primaryDark: '#4b007d',
+    primaryDark: '#ffffff',
   
     secondary: '#ff4081',
     secondaryLight: '#ff79b0',
     secondaryDark: '#c60055',
+
+    NN1: '#496eb1',
+    NN2: '#7bd150',
+    NN3: '#5ca1fb',
+    NN4: '#6051d3',
+
   };
   

@@ -6,21 +6,22 @@ import Form from '../components/Form';
 const Background = () => (
   <div>
     <Triangle
-      color="secondaryLight"
-      height={['80vh', '80vh']}
+      color="NN1"
+      height={['100vh', '100vh']}
       width={['100vw', '100vw']}
+      invertY
       invertX
     />
 
     <Triangle
-      color="background"
+      color="NN2"
       height={['50vh', '20vh']}
       width={['50vw', '50vw']}
       invertX
     />
 
     <Triangle
-      color="primaryDark"
+      color="NN3"
       height={['25vh', '40vh']}
       width={['75vw', '60vw']}
       invertX
@@ -28,7 +29,7 @@ const Background = () => (
     />
 
     <Triangle
-      color="backgroundDark"
+      color="NN4"
       height={['25vh', '20vh']}
       width={['100vw', '100vw']}
       invertY
@@ -38,6 +39,7 @@ const Background = () => (
 
 const ContactPage = () => (
   <Section.Container id="contact" Background={Background}>
+    <Section.Header name="Contact" icon="✍️" label="contact" />
     <Form />
   </Section.Container>
 );

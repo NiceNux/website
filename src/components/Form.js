@@ -57,7 +57,7 @@ class ContactForm extends React.Component {
     return (
       <Fade left>
       <Container className="App">
-        <h2>Contact Us</h2>
+        {/* <h2>Contact Us</h2> */}
         <Form className="form" action="/submitForm" method="POST">
           <Col>
             <FormGroup row>
