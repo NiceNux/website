@@ -8,7 +8,7 @@ import { CardContainer, Card } from '../components/Card';
 
 const Post = ({ title, author, slug, date, body, fluid, tags }) => {
     return(
-        <Card>
+        <Card style={{borderRadius: "30px"}}>
             <CardBody>
                 <a href={`https://nicenuxblog.netlify.com/blogpost/${slug}/`}>
                     <Img className="card-image-top" fluid={fluid} />

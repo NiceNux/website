@@ -55,8 +55,9 @@ const BlogPage = () => (
               ))}
             </Row>
           </Fade>
+          <Row>.</Row>
           <Fade right>
-            <a href={`https://nicenuxblog.netlify.com/`} className="btn btn-primary float-center"> See All Posts </a>
+            <a style={{borderRadius: "30px"}} href={`https://nicenuxblog.netlify.com/`} className="btn btn-primary float-center"> See All Posts </a>
           </Fade>
         </>
       )

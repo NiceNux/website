@@ -10,7 +10,7 @@ module.exports = {
     secondaryLight: '#ff79b0',
     secondaryDark: '#c60055',
 
-    NN1: '#496eb1',
+    NN1: '#d72434',
     NN2: '#7bd150',
     NN3: '#5ca1fb',
     NN4: '#6051d3',
