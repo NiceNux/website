@@ -6,9 +6,9 @@ import Fade from 'react-reveal/Fade';
 import Particles from 'react-particles-js';
 import { CardContainer, Card } from '../components/Card';
 import { Heading, Flex, Box, Text } from 'rebass';
-import BuildImage from '../media/build.png';
-import ExploreImage from '../media/explore.png';
-import QuestImage from '../media/quest.png';
+// import BuildImage from '../media/build.png';
+// import ExploreImage from '../media/explore.png';
+// import QuestImage from '../media/quest.png';
 
 const Background = () => (
   <div>
