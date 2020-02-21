@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import Particles from 'react-particles-js';
 
 const Triangle = styled.div`
   position: absolute;
   width: 0;
   height: 0;
-  z-index: -2;
+  zIndex: -2;
 
   ${props => {
     const color = props.theme.colors[props.color] || props.color;

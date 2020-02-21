@@ -7,68 +7,54 @@ import Section from '../components/Section';
 // import SocialLink from '../components/SocialLink';
 // import MouseIcon from '../components/MouseIcon';
 import Triangle from '../components/Triangle';
+import Particle from '../components/Particles';
 import Particles from 'react-particles-js';
 import Image from '../components/image'
 
+// const Background = () => (
+//   <div>
+//     <Triangle
+//       color="NN1"
+//       height={['35vh', '80vh']}
+//       width={['95vw', '60vw']}
+//     />
 
-const Background = () => (
-  <div>
-    <Triangle
-      color="NN1"
-      height={['35vh', '80vh']}
-      width={['95vw', '60vw']}
-    />
+//     <Triangle
+//       color="NN2"
+//       height={['38vh', '80vh']}
+//       width={['50vw', '35vw']}
+//     />
 
-    <Triangle
-      color="NN2"
-      height={['38vh', '80vh']}
-      width={['50vw', '35vw']}
-    />
+//     <Triangle
+//       color="NN3"
+//       height={['25vh', '35vh']}
+//       width={['75vw', '60vw']}
+//       invertX
+//     />
 
-    <Triangle
-      color="NN3"
-      height={['25vh', '35vh']}
-      width={['75vw', '60vw']}
-      invertX
-    />
+//     <Triangle
+//       color="NN4"
+//       height={['20vh', '20vh']}
+//       width={['100vw', '100vw']}
+//       invertX
+//       invertY
+//     />
+//   </div>
+// );
 
-    <Triangle
-      color="NN4"
-      height={['20vh', '20vh']}
-      width={['100vw', '100vw']}
-      invertX
-      invertY
-    />
-  </div>
-);
-
+const style = {
+  backgroundColor: 'rgba(68, 131, 173, .5)'
+}
 
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
 
 const roles = ['App Development', 'Serverless Architecture', 'Gamification Consulting']
 
+// Background={Background}
 const LandingPage = () => (
-  <Section.Container id="home" Background={Background}> 
-
-     {/* <StaticQuery
-      query={graphql`
-        query SiteTitleQuery {
-          contentfulAbout {
-            name
-            roles
-            socialLinks {
-              id
-              url
-              name
-              fontAwesomeIcon
-            }
-          }
-        }
-      `} */}
-       {/* render={() => { */}
-      
-        
-          <Fragment>
+  <Section.Container id="home" style={style}> 
+          <Particles style={{position: 'absolute'}}/>
+          <Fragment style={{position: 'absolute'}}>
             <Flex mx={0}>
               <Box width={1/6}> </Box>
               <Box width={2/3}>
@@ -106,21 +92,7 @@ const LandingPage = () => (
                   ))}
               </TextLoop>
             </Heading>
-
-            {/* <Flex alignItems="center" justifyContent="center" flexWrap="wrap">
-              {socialLinks.map(({ id, ...rest }) => (
-                <Box mx={3} fontSize={[5, 6, 6]} key={id}>
-                  <SocialLink {...rest} />
-                </Box>
-              ))}
-            </Flex>
-            <SectionLink section="about">
-              {({ onClick }) => <MouseIcon onClick={onClick} />}
-            </SectionLink> */}
           </Fragment>
-      
-       {/* } */}
-
   </Section.Container>
 );
 

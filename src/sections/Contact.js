@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import Section from '../components/Section';
 import Triangle from '../components/Triangle';
 import Form from '../components/Form';
+import Particles from 'react-particles-js';
 
 const Background = () => (
   <div>
@@ -37,10 +38,15 @@ const Background = () => (
   </div>
 );
 
+const style = {
+  backgroundColor: 'rgba(68, 131, 173, .5)'
+}
+
 const ContactPage = () => (
-  <Section.Container id="contact" Background={Background}>
+  <Section.Container id="contact" style={style}>
     <Section.Header name="Contact" icon="✍️" label="contact" />
-    <Form />
+    <Particles style={{position: 'absolute'}}/>
+    <Form style={{position: 'absolute'}}/>
   </Section.Container>
 );
   

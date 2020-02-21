@@ -1,16 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Image, Text, Flex, Box } from 'rebass';
-import { StaticQuery, graphql } from 'gatsby';
-import styled from 'styled-components';
-import Fade from 'react-reveal/Fade';
 import Section from '../components/Section';
-import { CardContainer, Card } from '../components/Card';
-import SocialLink from '../components/SocialLink';
 import Triangle from '../components/Triangle';
-import ImageSubtitle from '../components/ImageSubtitle';
-// import Hide from '../components/Hide';
-import Img from 'gatsby-image'
+import { UncontrolledCarousel } from 'reactstrap'
+import Fade from 'react-reveal/Fade';
+import Particles from 'react-particles-js';
+import { CardContainer, Card } from '../components/Card';
+import { Heading, Flex, Box, Text } from 'rebass';
+import BuildImage from '../media/build.png';
+import ExploreImage from '../media/explore.png';
+import QuestImage from '../media/quest.png';
 
 const Background = () => (
   <div>
@@ -45,169 +43,55 @@ const Background = () => (
   </div>
 );
 
-const CARD_HEIGHT = '200px';
 
-const MEDIA_QUERY_SMALL = '@media (max-width: 400px)';
-
-const Title = styled(Text)`
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  display: table;
-  border-bottom: ${props => props.theme.colors.primary} 5px solid;
-`;
-
-const TextContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  width: 100%;
-  width: calc(100% - ${CARD_HEIGHT});
-
-  ${MEDIA_QUERY_SMALL} {
-    width: calc(100% - (${CARD_HEIGHT} / 2));
+const items = [
+  {
+    src: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15ba800aa20%20text%20%7B%20fill%3A%23444%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15ba800aa20%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23666%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22247.3203125%22%20y%3D%22218.3%22%3EBUILD%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E',
+    altText: 'BUILD',
+    caption: 'BUILD',
+    header: 'Build your empire using new Toshi that join you every week.',
+    key: '1'
+  },
+  {
+    src: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15ba800aa20%20text%20%7B%20fill%3A%23444%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15ba800aa20%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23666%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22247.3203125%22%20y%3D%22218.3%22%3EEXPLORE%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E',
+    altText: 'EXPLORE',
+    caption: 'EXPLORE',
+    header: 'Send your Toshis on expeditions to explore undiscovered lands.',
+    key: '2'
+  },
+  {
+    src: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15ba800aa21%20text%20%7B%20fill%3A%23333%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15ba800aa21%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23555%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22277%22%20y%3D%22218.3%22%3EQUEST%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E',
+    altText: 'QUEST',
+    caption: 'QUEST',
+    header: 'Trained Toshi are ready to go on epic adventures to increase your ivestments and conquire evil.',
+    key: '3'
+  },
+  {
+    src: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15ba800aa21%20text%20%7B%20fill%3A%23333%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15ba800aa21%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23555%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22277%22%20y%3D%22218.3%22%3EVAULT%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E',
+    altText: 'VAULT',
+    caption: 'VAULT',
+    header: 'Track your game play achievements and adventure investments.',
+    key: '4'
   }
-`;
+];
 
-const ImageContainer = styled.div`
-  margin: auto;
-  width: ${CARD_HEIGHT};
-
-  ${MEDIA_QUERY_SMALL} {
-    width: calc(${CARD_HEIGHT} / 2);
-  }
-`;
-
-const ProjectImage = styled(Image)`
-  width: ${CARD_HEIGHT};
-  height: ${CARD_HEIGHT};
-  padding: 40px;
-  margin-top: 0px;
-
-  ${MEDIA_QUERY_SMALL} {
-    height: calc(${CARD_HEIGHT} / 2);
-    width: calc(${CARD_HEIGHT} / 2);
-    margin-top: calc(${CARD_HEIGHT} / 4);
-    padding: 10px;
-  }
-`;
-
-const ProjectTag = styled.div`
-  position: relative;
-  height: ${CARD_HEIGHT};
-  top: calc(
-    -${CARD_HEIGHT} - 3.5px
-  ); /*don't know why I have to add 3.5px here ... */
-
-  ${MEDIA_QUERY_SMALL} {
-    top: calc(-${CARD_HEIGHT} - 3.5px + (${CARD_HEIGHT} / 4));
-  }
-`;
-
-const Project = ({
-  name,
-  description,
-  fluid,
-  url
-}) => (
-  <Card p={0}>
-    <Flex style={{ height: CARD_HEIGHT }}>
-      <TextContainer>
-        <span>
-          <Title my={2} pb={1}>
-            {name}
-          </Title>
-        </span>
-        <Text width={[1]} style={{ overflow: 'auto' }}>
-          {description}
-        </Text>
-      </TextContainer>
-
-      <ImageContainer>
-        {/* <ProjectImage src={logo.image.src} alt={logo.title} /> */}
-        <Img className="card-image-top" fluid={fluid} />
-        <ProjectTag>
-          <Flex
-            style={{
-              float: 'right',
-            }}
-          >
-            {/* <Box mx={1} fontSize={5}>
-              <SocialLink
-                name="Check repository"
-                fontAwesomeIcon="github"
-                url={repositoryUrl}
-              />
-            </Box>
-            <Box mx={1} fontSize={5}>
-              <SocialLink
-                name="See project"
-                fontAwesomeIcon="globe"
-                url={projectUrl}
-              />
-            </Box> */}
-          </Flex>
-          {/* <ImageSubtitle bg="primary" color="white" y="bottom" x="right" round>
-            {type}
-          </ImageSubtitle> */}
-          {/* <Hide query={MEDIA_QUERY_SMALL}>
-            <ImageSubtitle bg="backgroundDark">{publishedDate}</ImageSubtitle>
-          </Hide> */}
-        </ProjectTag>
-      </ImageContainer>
-    </Flex>
-  </Card>
-);
-
-Project.propTypes = {
-  name: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  projectUrl: PropTypes.string.isRequired,
-  repositoryUrl: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  publishedDate: PropTypes.string.isRequired,
-  logo: PropTypes.shape({
-    image: PropTypes.shape({
-      src: PropTypes.string,
-    }),
-    title: PropTypes.string,
-  }).isRequired,
-};
+const style = {
+  backgroundColor: 'rgba(68, 131, 173, .5)'
+}
 
 const Projects = () => (
-  <Section.Container id="projects" Background={Background}>
-    <Section.Header name="Projects" icon="💻" label="notebook" />
-    <StaticQuery
-      query={graphql`
-      query TeamPageQuery2 {
-        allContentfulTeam(limit: 5) {
-          edges{
-            node{
-              id
-              name
-              description {
-                description
-              }
-              picture {
-                fluid(maxWidth: 600) {
-                  ...GatsbyContentfulFluid
-                }
-              }
-            }
-          }
-        }
-      }
-      `}
-      render={({ allContentfulTeam }) => (
-        <CardContainer minWidth="350px">
-          {allContentfulTeam.edges.map((p, i) => (
-            <Fade bottom delay={i * 200} key={p.id}>
-              <Project {...p} />
-            </Fade>
-          ))}
-        </CardContainer>
-      )}
-    />
+  <Section.Container id="projects" style={style}>
+    <Section.Header name="Current Projects" icon="💻" label="notebook" />
+    <Particles style={{position: 'absolute'}}/>
+    <Fade left>
+      <Card p={15} style={{borderRadius: "30px"}}>
+        <div style={{fontSize:"3em"}}>TOSHI</div>
+        <UncontrolledCarousel items={items} />
+      </Card>
+    </Fade>
+    <Fade right>
+      <a style={{borderRadius: "30px"}} href={`https://toshi.netlify.com/`} className="btn btn-primary float-center"> Learn More </a>
+    </Fade>
   </Section.Container>
 );
 

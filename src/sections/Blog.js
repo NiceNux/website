@@ -6,6 +6,7 @@ import Triangle from '../components/Triangle';
 import Section from '../components/Section';
 import Post from '../components/Post'
 import Fade from 'react-reveal/Fade';
+import Particles from 'react-particles-js';
 
 const Background = () => (
   <div>
@@ -31,9 +32,14 @@ const Background = () => (
   </div>
 );
 
+const style = {
+  backgroundColor: 'rgba(68, 131, 173, .5)'
+}
+
 const BlogPage = () => (   
-  <Section.Container id="blog" Background={Background}>
+  <Section.Container id="blog" style={style}>
     <Section.Header name="Blog" icon="✍️" label="blog" />
+    <Particles style={{position: 'absolute'}}/>
       <StaticQuery query={indexQuery} render={data => {
       return (
         <>
