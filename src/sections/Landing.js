@@ -7,7 +7,6 @@ import Section from '../components/Section';
 // import SocialLink from '../components/SocialLink';
 // import MouseIcon from '../components/MouseIcon';
 import Triangle from '../components/Triangle';
-import Particle from '../components/Particles';
 import Particles from 'react-particles-js';
 import Image from '../components/image'
 
